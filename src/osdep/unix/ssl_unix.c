@@ -7,7 +7,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * 
+ *
  * ========================================================================
  */
 
@@ -27,14 +27,14 @@
  */
 
 #define crypt ssl_private_crypt
-#include <x509v3.h>
-#include <ssl.h>
+#include <openssl/x509v3.h>
+#include <openssl/ssl.h>
 #include <err.h>
-#include <pem.h>
-#include <buffer.h>
-#include <bio.h>
-#include <crypto.h>
-#include <rand.h>
+#include <openssl/pem.h>
+#include <openssl/buffer.h>
+#include <openssl/bio.h>
+#include <openssl/crypto.h>
+#include <openssl/rand.h>
 #undef crypt
 
 #define SSLBUFLEN 8192
@@ -753,7 +753,7 @@ void ssl_server_init (char *server)
 	  return;
 	}
       }
-    }  
+    }
   }
   while (i = ERR_get_error ())	/* SSL failure */
     syslog (LOG_ERR,"SSL error status: %.80s",ERR_error_string (i,NIL));
